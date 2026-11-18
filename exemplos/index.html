@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo do padrão Mesa</title>
+<!-- Padrão Mesa v3.0 · catálogo de exemplos. Cada linha é uma peça aprovada, com o link para ela funcionando no
+     demo (mesa-demo/, dados fictícios) e o arquivo e a função onde está a implementação de referência. -->
+<script>try { if (localStorage.getItem("quantia-tema") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../nucleo/base.css">
+<link rel="stylesheet" href="../nucleo/painel.css">
+<style>
+  .catalogo td:first-child a { font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .catalogo td:nth-child(3) code { white-space: nowrap; }
+  .catalogo td { vertical-align: top; }
+  .grupo td { color: var(--t-ambar); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; background: var(--t-barra) !important; }
+</style>
+</head>
+<body>
+<div class="terminal">
+  <header class="t-topo">
+    <a class="t-marca" href="../README.md">PADRÃO MESA</a>
+    <span class="t-pg"><b>v3.0</b> Catálogo de exemplos</span>
+    <span class="t-hora"><span class="num" data-relogio></span> BRT</span>
+    <button class="t-btn" type="button" data-tema>Tema claro</button>
+  </header>
+  <main>
+    <section class="hero">
+      <span class="rotulo">Padrão Mesa v3.0 · dados fictícios</span>
+      <h1>Peças aprovadas, para copiar</h1>
+      <div class="meta"><span>Abra a peça no demo, leia a regra no GUIA e copie a implementação de referência.</span><span class="atualizado"><a href="mesa-demo/index.html">Abrir o demo completo ›</a></span></div>
+    </section>
+    <div class="grade">
+      <section class="painel" data-tam="full" id="CAT">
+        <header class="painel-cab"><h2 class="ttl">Peças, onde ver e onde está o código</h2></header>
+        <div class="painel-corpo"><div class="rolagem"><table class="catalogo">
+          <thead><tr><th>Peça</th><th>O que é e quando usar</th><th>Código de referência</th><th>Regras do GUIA</th></tr></thead>
+          <tbody>
+            <tr class="grupo"><td colspan="4">Casca e navegação</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">MESA</a></td><td>Visão geral: blocos das funções lado a lado e alertas à direita, numa tela sem rolar.</td><td><code>nucleo/mesa.js · telaMesa</code></td><td>M1–M4</td></tr>
+            <tr><td><a href="mesa-demo/index.html#BAND-1">Barra de funções e telas</a></td><td>Uma linha compacta com as funções (teclas 0–N) e as telas da função (← → e ⇧1–9).</td><td><code>nucleo/mesa.js · montarFuncoes, montarTelas</code></td><td>N1–N4</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-1">Inspetor</a></td><td>Clique num dia, mês, produto ou linha: o detalhe abre à direita, sem sair da tela.</td><td><code>nucleo/mesa.js · alvo, inspecionar</code></td><td>T4</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-2">Filtros com rótulo</a></td><td>Abas sempre visíveis, um rótulo por grupo (ao lado; em cima se não couber), fio entre os grupos, escolha guardada. Ver RISK-11/12 e RISK-13.</td><td><code>nucleo/mesa.js · filtros</code> (no demo, a versão da RISK: <code>funcoes/risk.js · grupo</code>)</td><td>F1–F6</td></tr>
+            <tr class="grupo"><td colspan="4">Blocos da MESA</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">MKT · candle</a></td><td>Candle do produto de referência ao vivo, com linha compacta de último, variação e hora.</td><td><code>mesa-demo/funcoes/mkt.js · resumo, desenharVelas</code></td><td>M3, G5</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">RISK · PLD diário</a></td><td>Barras com a média do dia e linha com o máximo da ponta; DECOMP e piso discretos.</td><td><code>mesa-demo/funcoes/risk.js · resumo, desenharDiario</code></td><td>M3, G3</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">BAND · probabilidade por mês</a></td><td>Barra empilhada por mês e a cor mais provável em sigla de texto, sem fundo.</td><td><code>mesa-demo/funcoes/band.js · resumo</code></td><td>M3, C3</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">HYD · chuva de hoje por bacia</a></td><td>Barra que cresce com a chuva observada, traço do previsto no dia e marca do ritmo esperado a esta hora.</td><td><code>mesa-demo/funcoes/hyd.js · chuvaBloco</code></td><td>M3, G6</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MESA">RES · cenários LP</a></td><td>Tabela compacta cenários × meses com ▲▼ contra a versão anterior.</td><td><code>mesa-demo/funcoes/res.js · resumo</code></td><td>M3</td></tr>
+            <tr class="grupo"><td colspan="4">Gráficos e tabelas das telas</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-1">RISK-1 · um símbolo por dia</a></td><td>Mínimo a máximo, vale, ponta e média por dia; DECOMP em degraus; revisões com datas e desvio; rótulos diretos.</td><td><code>mesa-demo/funcoes/risk.js · desenhar26, rot26*</code></td><td>G1–G4</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-1">RISK-25 · preços por hora</a></td><td>Tabela densa com cabeçalho e rodapé fixos (média, mínimo, máximo), horizonte em abas, horas 00h→23h.</td><td><code>mesa-demo/funcoes/risk.js</code> (painel RISK-25)</td><td>D1–D3</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-2">RISK-13 · pequenos múltiplos</a></td><td>12 meses em grade 6 × 2, escala comum, filtros próprios e anos clicáveis na legenda.</td><td><code>mesa-demo/funcoes/risk.js · desenharPerfil</code></td><td>G2, F3, F5</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RISK-2">RISK-11 e 12 · duas vistas ligadas</a></td><td>Perfil dia a dia e mapa de calor com os mesmos filtros e a mesma altura; o dia destacado aparece nos dois.</td><td><code>mesa-demo/funcoes/risk.js</code> (tela PER)</td><td>F4</td></tr>
+            <tr><td><a href="mesa-demo/index.html#MKT-1">MKT-1 · candles</a></td><td>Candles com volume, intervalos e janela; vazado = alta, cheio = baixa (sem depender da cor).</td><td><code>mesa-demo/funcoes/mkt.js · desenharVelas</code></td><td>G5</td></tr>
+            <tr><td><a href="mesa-demo/index.html#RES-1">RES-1 · cadastro editável</a></td><td>Tabela editável com validação que avisa sem bloquear, colar do Excel e versões.</td><td><code>mesa-demo/funcoes/res.js</code> (tela CAD)</td><td>E1–E3</td></tr>
+            <tr><td><a href="mesa-demo/index.html#BAND-6">Metodologia com índice</a></td><td>Texto com índice à esquerda; o "?" de cada painel abre a seção que o explica.</td><td><code>nucleo/mesa.js · met</code></td><td>T5</td></tr>
+          </tbody>
+        </table></div></div>
+        <p class="leg">O demo é a variante 08 do quantia-ui-lab, com dados fictícios. As peças marcadas "mesa-demo/funcoes/…" ainda moram dentro do módulo da função; ao serem usadas por uma segunda função, sobem para o núcleo (GUIA, seção "Evoluir o padrão").</p>
+      </section>
+    </div>
+  </main>
+  <footer class="t-status"><span>Padrão Mesa v3.0</span><span>Dados fictícios</span></footer>
+</div>
+<script src="../nucleo/graficos.js"></script>
+<script src="../nucleo/componentes.js"></script>
+<script src="../nucleo/terminal.js"></script>
+</body>
+</html>
